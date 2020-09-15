@@ -3,9 +3,15 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    cache = dict()
+
+    for arr in arrays:
+        for num in arr:
+            cache[num] = cache.get(num,0) + 1
+    result = [count[0] for count in cache.items() if count[1] == len(arrays)]
 
     return result
-
+# O(n^2)
 
 if __name__ == "__main__":
     arrays = []
